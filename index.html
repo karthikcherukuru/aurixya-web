@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurixya | Architecting Scalable Digital Systems</title>
+    <meta name="description" content="Aurixya is a technology architecture company building scalable web platforms, web applications, and data systems for modern enterprises.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">AURIXYA</a>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#contact" class="btn btn-primary nav-cta">Start a Conversation</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container reveal">
+            <h1 class="hero-title">Architecting Scalable<br>Digital Systems.</h1>
+            <p class="hero-subtitle">We design and build high-performance web platforms and data infrastructures engineered for long-term scale.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+                <a href="#services" class="btn btn-secondary">View Capabilities</a>
+            </div>
+        </section>
+
+        <section id="about" class="about section-padding container reveal">
+            <div class="section-header">
+                <h2>Systems Architecture First.</h2>
+            </div>
+            <div class="about-content">
+                <p>Aurixya operates at the intersection of strategic design and robust software engineering. We do not just write code; we architect systems. Our focus is on long-term scalability, clean architecture, and performance-first engineering.</p>
+                <p>By treating infrastructure and application layers as a unified ecosystem, we deliver business-aligned solutions that reliably support startups, SMEs, and enterprises through their most critical growth phases.</p>
+            </div>
+        </section>
+
+        <section id="services" class="services section-padding container reveal">
+            <div class="section-header">
+                <h2>Capabilities</h2>
+            </div>
+            <div class="grid services-grid">
+                <div class="card">
+                    <h3>Web Platforms</h3>
+                    <p>High-performance marketing sites and company platforms built for speed, SEO optimization, and sustained growth.</p>
+                </div>
+                <div class="card">
+                    <h3>Web Applications</h3>
+                    <p>Scalable product-grade applications engineered for reliability, security, and seamless feature expansion.</p>
+                </div>
+                <div class="card">
+                    <h3>Data & Analytics Systems</h3>
+                    <p>Robust dashboards, data pipelines, and business intelligence infrastructure to drive data-informed decisions.</p>
+                </div>
+                <div class="card">
+                    <h3>System Architecture & Scaling</h3>
+                    <p>Technical planning, cloud infrastructure design, and system auditing for long-term operational scale.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="process section-padding container reveal">
+            <div class="section-header">
+                <h2>Methodology</h2>
+            </div>
+            <div class="grid process-grid">
+                <div class="process-step">
+                    <span class="step-number">01</span>
+                    <h3>Discover</h3>
+                    <p>Auditing business objectives, technical constraints, and data flows to define a clear architectural roadmap.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">02</span>
+                    <h3>Architect</h3>
+                    <p>Designing the system blueprint, selecting optimal tech stacks, and structuring databases for structural integrity.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">03</span>
+                    <h3>Build</h3>
+                    <p>Executing clean, maintainable code with a focus on performance, security, and component reusability.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">04</span>
+                    <h3>Scale</h3>
+                    <p>Deploying robust infrastructure and monitoring systems to ensure the application thrives under increased load.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-aurixya section-padding container reveal">
+            <div class="section-header">
+                <h2>The Standard</h2>
+            </div>
+            <ul class="standard-list">
+                <li>
+                    <strong>Performance-First Engineering</strong>
+                    <span>Optimized delivery, minimal payloads, and sub-second rendering.</span>
+                </li>
+                <li>
+                    <strong>Clean Maintainable Codebase</strong>
+                    <span>Strict adherence to software design patterns and modular architecture.</span>
+                </li>
+                <li>
+                    <strong>Scalable Infrastructure Thinking</strong>
+                    <span>Systems built to handle tomorrow's traffic, not just today's baseline.</span>
+                </li>
+                <li>
+                    <strong>Long-Term Partnerships</strong>
+                    <span>Strategic technical alignment rather than transactional development.</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contact" class="contact section-padding container reveal">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Initiate a Project.</h2>
+                    <p>Reach out to discuss your technical architecture and scaling requirements.</p>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">Submit Inquiry</button>
+                    <p id="formStatus" class="form-status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo footer-logo">AURIXYA</span>
+                <p>Engineering scalable digital infrastructure for modern business.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Aurixya. All rights reserved.</p>
+            <p>Built by Aurixya</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
