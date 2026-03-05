@@ -29,7 +29,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    /* Smooth behavior removed here as JS handles it for clean URLs now */
     font-size: 16px;
 }
 
@@ -228,13 +228,24 @@ h1, h2, h3 {
    ABOUT
 ========================================= */
 .about-content {
-    font-size: 1.125rem;
-    color: var(--text-primary);
     max-width: 800px;
 }
 
-.about-content p {
+.about-content .lead-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem;
+    line-height: 1.4;
+}
+
+.about-content p:not(.lead-text) {
+    font-size: 1rem;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
+    padding-left: calc(1.5rem + 3px); /* Aligns with the lead text */
 }
 
 /* =========================================

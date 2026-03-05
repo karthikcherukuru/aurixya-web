@@ -86,4 +86,30 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Clean URL Smooth Scrolling ---
+    // This prevents the #hash from appearing in the URL while accounting for fixed navbar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Stop standard browser jump
+            
+            const targetId = this.getAttribute('href').substring(1);
+            // Handle edge case where href is just "#"
+            if (!targetId) return; 
+
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Calculate position, accounting for the fixed navbar height
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
 });
