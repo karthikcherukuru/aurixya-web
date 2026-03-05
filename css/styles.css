@@ -2,6 +2,7 @@
    VARIABLES & RESET
 ========================================= */
 :root {
+    /* Colors */
     --bg-color: #FAFAFA;
     --surface-color: #FFFFFF;
     --text-primary: #111111;
@@ -10,14 +11,23 @@
     --border-hover: #CCCCCC;
     --accent: #000000;
     
+    /* Typography */
     --font-logo: 'Pixelify Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
     
+    /* Fluid Spacing (Mobile Default) */
     --spacing-sm: 1rem;
-    --spacing-md: 2.5rem;
-    --spacing-lg: 5rem;
-    --spacing-xl: 8rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3.5rem;
+    --spacing-xl: 5rem;
     
+    /* Fluid Components (Mobile Default) */
+    --card-padding: 1.5rem;
+    --tag-padding: 0.4rem 0.75rem;
+    --tag-font: 0.8125rem;
+    --section-header-font: 1.125rem;
+    
+    /* Utilities */
     --radius: 4px;
     --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -29,7 +39,6 @@
 }
 
 html {
-    /* Smooth behavior removed here as JS handles it for clean URLs now */
     font-size: 16px;
 }
 
@@ -93,7 +102,7 @@ h1, h2, h3 {
 }
 
 .section-header h2 {
-    font-size: 1.25rem;
+    font-size: var(--section-header-font);
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -176,7 +185,6 @@ h1, h2, h3 {
     color: var(--text-primary);
 }
 
-/* Underline slide micro-interaction */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -245,7 +253,7 @@ h1, h2, h3 {
     font-size: 1rem;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
-    padding-left: calc(1.5rem + 3px); /* Aligns with the lead text */
+    padding-left: calc(1.5rem + 3px); 
 }
 
 /* =========================================
@@ -258,7 +266,7 @@ h1, h2, h3 {
 .card {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
-    padding: 2rem;
+    padding: var(--card-padding);
     border-radius: var(--radius);
     transition: var(--transition);
 }
@@ -284,6 +292,7 @@ h1, h2, h3 {
 ========================================= */
 .industries-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .industry-card {
@@ -306,13 +315,13 @@ h1, h2, h3 {
 ========================================= */
 .projects-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .project-card {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
-    padding: 2rem;
+    padding: var(--card-padding);
     border-radius: var(--radius);
     display: flex;
     flex-direction: column;
@@ -362,7 +371,7 @@ h1, h2, h3 {
 .tech-matrix {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .tech-category h3 {
@@ -375,12 +384,12 @@ h1, h2, h3 {
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .tech-tags span {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
+    font-size: var(--tag-font);
+    padding: var(--tag-padding);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     background-color: var(--surface-color);
@@ -451,7 +460,7 @@ h1, h2, h3 {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    padding: 2rem;
+    padding: var(--card-padding);
 }
 
 .contact-info h2 {
@@ -578,9 +587,22 @@ h1, h2, h3 {
 }
 
 /* =========================================
-   MEDIA QUERIES (Desktop First adjustments)
+   MEDIA QUERIES (Desktop Overrides)
 ========================================= */
 @media (min-width: 768px) {
+    :root {
+        /* Expand spacing back out for large screens */
+        --spacing-md: 2.5rem;
+        --spacing-lg: 5rem;
+        --spacing-xl: 8rem;
+        
+        /* Expand components back out */
+        --card-padding: 2rem;
+        --tag-padding: 0.5rem 1rem;
+        --tag-font: 0.875rem;
+        --section-header-font: 1.25rem;
+    }
+
     .section-padding {
         padding: var(--spacing-xl) 0;
     }
@@ -618,6 +640,7 @@ h1, h2, h3 {
 
     .projects-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 
     .process-grid {
