@@ -48,7 +48,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; /* <--- THIS PREVENTS STRETCHING ON MOBILE */
+    overflow-x: hidden; 
 }
 
 a {
@@ -88,7 +88,9 @@ h1, h2, h3 {
 }
 
 .section-padding {
-    padding: var(--spacing-lg) 0;
+    /* FIXED: Only target top and bottom so container left/right padding survives */
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
 }
 
 .grid {
@@ -605,7 +607,9 @@ h1, h2, h3 {
     }
 
     .section-padding {
-        padding: var(--spacing-xl) 0;
+        /* FIXED FOR DESKTOP TOO */
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
     }
 
     .nav-links {
