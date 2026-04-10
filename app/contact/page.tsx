@@ -15,7 +15,7 @@ export default function Contact() {
     setErrorMessage("");
 
     // ⚠️ REPLACE THIS WITH YOUR ACTUAL WEB3FORMS ACCESS KEY ⚠️
-    const access_key = "65d17600-a0ef-46c1-88c6-22e079697845";
+    const access_key = "YOUR_ACCESS_KEY_GOES_HERE";
 
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", access_key);
@@ -41,8 +41,8 @@ export default function Contact() {
     }
   }
 
-  // Butter-smooth premium ease curve
-  const premiumEase = [0.16, 1, 0.3, 1];
+  // ADDED: Explicitly telling TypeScript this is a tuple of exactly 4 numbers
+  const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col font-sans relative overflow-hidden selection:bg-orange-500/30">
@@ -80,7 +80,7 @@ export default function Contact() {
                 COMMUNICATION CHANNELS
               </div>
               <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-                Let's Architect <br/>
+                Let&apos;s Architect <br/>
                 <span className="text-[#FF5A36]">The Future.</span>
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed max-w-md">
