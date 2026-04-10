@@ -51,8 +51,8 @@ const services = [
   }
 ];
 
-// The "Apple-tier" butter-smooth animation curve
-const premiumEase = [0.16, 1, 0.3, 1];
+// ADDED: Explicitly telling TypeScript this is a tuple of exactly 4 numbers
+const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState(0);
@@ -66,7 +66,6 @@ export default function Services() {
           <button
             key={service.title}
             onClick={() => setActiveTab(index)}
-            // Upgraded to duration-500 ease-out for a softer, more elegant color fade
             className={`text-sm md:text-base font-bold tracking-widest uppercase transition-colors duration-500 ease-out relative pb-2 ${
               activeTab === index 
                 ? "text-[#FF5A36] drop-shadow-[0_0_8px_rgba(255,90,54,0.6)]" 
@@ -79,7 +78,6 @@ export default function Services() {
             {activeTab === index && (
               <motion.div
                 layoutId="activeTabUnderline"
-                // This spring physics makes the underline feel like it has weight when jumping between words
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="absolute left-0 bottom-0 h-[2px] w-full bg-[#FF5A36] shadow-[0_0_10px_rgba(255,90,54,0.8)]"
               />
@@ -98,12 +96,11 @@ export default function Services() {
               key={service.title}
               initial={false}
               animate={{
-                top: offset * 24, // Slightly increased the gap between stacked cards for depth
-                scale: 1 - offset * 0.05, // Slightly deeper scaling for 3D effect
+                top: offset * 24, 
+                scale: 1 - offset * 0.05, 
                 zIndex: services.length - offset,
                 opacity: offset === 0 ? 1 : Math.max(1 - offset * 0.3, 0),
               }}
-              // This is the magic sauce for the butter-smooth card shuffle
               transition={{ 
                 duration: 0.8, 
                 ease: premiumEase 

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+// ADDED: Imported 'Variants' from framer-motion
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef } from "react";
 
 const footerLinks = [
@@ -34,8 +35,8 @@ export default function MonolithFooter() {
   const yTitle = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacityTitle = useTransform(scrollYProgress, [0, 0.4, 0.9, 1], [0, 1, 1, 0]);
 
-  // variant for the button internal ripple
-  const rippleVariant = {
+  // ADDED: Explicitly declared the type as 'Variants' to satisfy TypeScript
+  const rippleVariant: Variants = {
     initial: {
       scale: 0,
       opacity: 0.6,
@@ -51,7 +52,6 @@ export default function MonolithFooter() {
   };
 
   return (
-    // ADDED: snap-start 
     <footer ref={ref} className="min-h-screen bg-black w-full flex flex-col items-center justify-center pt-24 pb-12 px-6 md:px-12 font-sans relative z-10 selection:bg-orange-500/30 overflow-hidden snap-start">
       
       {/* --- LAYER 1: Parallax Background Constellation Graphic --- */}
@@ -71,8 +71,9 @@ export default function MonolithFooter() {
         
         {/* --- CINEMATIC TITLE --- */}
         <motion.div style={{ y: yTitle, opacity: opacityTitle }} className="text-center mb-16 md:mb-28">
+          {/* ADDED: Replaced "Let's" with "Let&apos;s" to fix strict React HTML entity errors */}
           <h2 className="text-5xl md:text-8xl lg:text-[7.5rem] font-extrabold text-white tracking-tighter leading-[0.9] max-w-6xl mx-auto uppercase">
-            Let's forge<br/>the autonomous future.
+            Let&apos;s forge<br/>the autonomous future.
           </h2>
         </motion.div>
 
