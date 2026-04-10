@@ -25,9 +25,26 @@ export default function About() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col font-sans relative overflow-hidden selection:bg-orange-500/30">
       
-      {/* Background Glow Effects */}
-      <div className="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-[#FF5A36]/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-20%] w-[40vw] h-[40vw] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* =========================================
+          VERCEL-STYLE DEPLOYMENT GLOW
+          ========================================= */}
+      <div 
+        className="absolute top-0 inset-x-0 w-full h-[60vh] opacity-70 blur-[60px] pointer-events-none z-0"
+        style={{
+          backgroundImage: 'linear-gradient(to right, #ef008f, #6ec3f4, #7038ff, #ffffff, #ef008f)',
+          backgroundSize: '200% 100%',
+          animation: 'gradient-x 12s ease-in-out infinite',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 70%)',
+          maskImage: 'linear-gradient(to bottom, black 0%, transparent 70%)'
+        }}
+      />
+      <style>{`
+        @keyframes gradient-x {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
 
       {/* Navbar Minimal */}
       <header className="w-full flex justify-between items-center p-6 md:px-12 relative z-20">
@@ -49,9 +66,12 @@ export default function About() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-24 max-w-3xl"
         >
-          <h2 className="text-[#FF5A36] font-mono text-sm tracking-[0.2em] mb-6 uppercase">The Aurixya Standard</h2>
+          <h2 className="text-[#6ec3f4] font-mono text-sm tracking-[0.2em] mb-6 uppercase">The Aurixya Standard</h2>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.1]">
-            We Engineer <br/>The Future.
+            We Engineer <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec3f4] via-[#7038ff] to-[#ef008f]">
+              The Future.
+            </span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
             Aurixya is a premier technical agency specializing in Agentic AI, high-performance web ecosystems, and scalable data pipelines. We partner with visionaries to turn complex data into actionable intelligence.
@@ -68,7 +88,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 + (index * 0.1), ease: [0.16, 1, 0.3, 1] }}
               className="bg-white/[0.03] border border-white/10 rounded-[32px] p-8 md:p-10 backdrop-blur-2xl hover:bg-white/[0.05] hover:border-white/20 transition-all duration-500 flex flex-col h-full"
             >
-              <span className="text-[#FF5A36] font-mono text-2xl mb-6 opacity-80">{item.num}</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec3f4] to-[#7038ff] font-mono text-2xl mb-6 opacity-80">{item.num}</span>
               <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
               <p className="text-gray-400 leading-relaxed flex-1">{item.desc}</p>
             </motion.div>

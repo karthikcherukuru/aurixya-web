@@ -46,9 +46,28 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col font-sans relative overflow-hidden selection:bg-orange-500/30">
       
-      {/* Background Glow Effects */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#FF5A36]/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* =========================================
+          VERCEL-STYLE DEPLOYMENT GLOW
+          ========================================= */}
+      <div 
+        className="absolute top-0 inset-x-0 w-full h-[60vh] opacity-70 blur-[60px] pointer-events-none z-0"
+        style={{
+          backgroundImage: 'linear-gradient(to right, #ef008f, #6ec3f4, #7038ff, #ffffff, #ef008f)',
+          backgroundSize: '200% 100%',
+          animation: 'gradient-x 12s ease-in-out infinite',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 70%)',
+          maskImage: 'linear-gradient(to bottom, black 0%, transparent 70%)'
+        }}
+      />
+      
+      {/* Dynamic Keyframes for the Gradient Animation */}
+      <style>{`
+        @keyframes gradient-x {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
 
       {/* Navbar Minimal */}
       <header className="w-full flex justify-between items-center p-6 md:px-12 relative z-20">
@@ -74,15 +93,17 @@ export default function Contact() {
               transition={{ duration: 0.8, ease: premiumEase }}
               className="mb-12"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-400 mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#FF5A36] animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-400 mb-6 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[#6ec3f4] animate-pulse"></span>
                 COMMUNICATION CHANNELS
               </div>
-              <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight drop-shadow-md">
                 Let&apos;s Architect <br/>
-                <span className="text-[#FF5A36]">The Future.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec3f4] via-[#7038ff] to-[#ef008f]">
+                  The Future.
+                </span>
               </h1>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-md">
+              <p className="text-gray-300 text-lg leading-relaxed max-w-md drop-shadow">
                 Reach out to our engineering hubs. Whether you need a bespoke ERP or an autonomous AI agent, our teams are ready to scale your vision.
               </p>
             </motion.div>
@@ -98,12 +119,12 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.2, ease: premiumEase }}
                 className="group flex items-center gap-6 p-6 rounded-3xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.04] hover:border-white/20 transition-all backdrop-blur-xl"
               >
-                <div className="w-12 h-12 rounded-full bg-[#FF5A36]/10 flex items-center justify-center group-hover:bg-[#FF5A36]/20 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#FF5A36]"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <div className="w-12 h-12 rounded-full bg-[#ef008f]/10 flex items-center justify-center group-hover:bg-[#ef008f]/20 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#ef008f]"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </div>
                 <div>
                   <h4 className="text-sm font-mono text-gray-500 uppercase tracking-widest mb-1">Direct Communications</h4>
-                  <p className="text-lg font-bold text-white group-hover:text-[#FF5A36] transition-colors">sales@aurixya.in</p>
+                  <p className="text-lg font-bold text-white group-hover:text-[#ef008f] transition-colors">sales@aurixya.in</p>
                 </div>
               </motion.a>
 
@@ -169,7 +190,7 @@ export default function Contact() {
                     <div>
                       <label htmlFor="name" className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2 block">Full Name</label>
                       <input required type="text" id="name" name="name" placeholder="John Doe" 
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FF5A36] focus:bg-white/10 transition-all"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#6ec3f4] focus:bg-white/10 transition-all"
                       />
                     </div>
                     
@@ -177,7 +198,7 @@ export default function Contact() {
                     <div>
                       <label htmlFor="email" className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2 block">Business Email</label>
                       <input required type="email" id="email" name="email" placeholder="john@company.com" 
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FF5A36] focus:bg-white/10 transition-all"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#6ec3f4] focus:bg-white/10 transition-all"
                       />
                     </div>
 
@@ -185,7 +206,7 @@ export default function Contact() {
                     <div>
                       <label htmlFor="inquiry" className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2 block">Primary Requirement</label>
                       <select id="inquiry" name="inquiry_type" required
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[#FF5A36] focus:bg-white/10 transition-all appearance-none cursor-pointer"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[#6ec3f4] focus:bg-white/10 transition-all appearance-none cursor-pointer"
                       >
                         <option value="Agentic AI" className="bg-[#0a0a0a]">Agentic AI Ecosystems</option>
                         <option value="Web Development" className="bg-[#0a0a0a]">High-Performance Web Apps</option>
@@ -199,7 +220,7 @@ export default function Contact() {
                     <div>
                       <label htmlFor="message" className="text-xs font-mono text-gray-400 uppercase tracking-widest mb-2 block">Project Details</label>
                       <textarea required id="message" name="message" rows={4} placeholder="Describe your objectives, scale, and timeline..."
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FF5A36] focus:bg-white/10 transition-all resize-none"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#6ec3f4] focus:bg-white/10 transition-all resize-none"
                       ></textarea>
                     </div>
 
@@ -210,7 +231,7 @@ export default function Contact() {
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="mt-2 w-full bg-[#FF5A36] text-white font-bold py-4 rounded-xl hover:bg-[#ff7052] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,90,54,0.3)]"
+                      className="mt-2 w-full bg-gradient-to-r from-[#6ec3f4] via-[#7038ff] to-[#ef008f] text-white font-bold py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
                     >
                       {isSubmitting ? (
                         <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -228,7 +249,7 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center text-center py-16"
                 >
-                  <div className="w-20 h-20 bg-[#FF5A36]/20 text-[#FF5A36] rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,90,54,0.3)]">
+                  <div className="w-20 h-20 bg-[#6ec3f4]/20 text-[#6ec3f4] rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(110,195,244,0.3)]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
                   <h2 className="text-3xl font-bold text-white mb-4">Transmission Received</h2>

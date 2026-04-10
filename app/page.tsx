@@ -48,13 +48,33 @@ export default function Home() {
           ========================================= */}
       <div className="min-h-screen flex flex-col relative z-10 snap-start">
         
+        {/* =========================================
+            VERCEL-STYLE DEPLOYMENT GLOW
+            ========================================= */}
+        <div 
+          className="absolute top-0 inset-x-0 w-full h-[60vh] opacity-70 blur-[60px] pointer-events-none z-[-1]"
+          style={{
+            backgroundImage: 'linear-gradient(to right, #ef008f, #6ec3f4, #7038ff, #ffffff, #ef008f)',
+            backgroundSize: '200% 100%',
+            animation: 'gradient-x 12s ease-in-out infinite',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, transparent 70%)',
+            maskImage: 'linear-gradient(to bottom, black 0%, transparent 70%)'
+          }}
+        />
+        <style>{`
+          @keyframes gradient-x {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+        `}</style>
+
         {/* --- TOP HEADER --- */}
-        <header className="w-full flex justify-between items-center p-6 md:px-12">
+        <header className="w-full flex justify-between items-center p-6 md:px-12 relative z-20">
           <div className="font-[family-name:var(--font-pixelify)] text-2xl tracking-widest text-white flex items-center gap-2">
             AURIXYA
           </div>
           
-          {/* Changed from <button> to <Link href="/contact"> */}
           <Link href="/contact" className="group relative overflow-hidden px-4 py-2 border border-white/20 rounded-md text-sm font-medium shadow-sm transition-all duration-300">
             <span className="absolute inset-0 w-full h-full bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></span>
             <span className="relative z-10 text-white group-hover:text-black transition-colors duration-300">
@@ -64,7 +84,7 @@ export default function Home() {
         </header>
 
         {/* --- MAIN CENTER CONTENT --- */}
-        <main className="flex-1 flex flex-col items-center justify-center px-4 w-full max-w-5xl mx-auto">
+        <main className="flex-1 flex flex-col items-center justify-center px-4 w-full max-w-5xl mx-auto relative z-10">
           <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] font-extrabold tracking-tight text-center leading-[1] flex flex-col items-center w-full">
             <span className="text-white uppercase font-sans">BUILD</span>
             
@@ -121,7 +141,7 @@ export default function Home() {
           <div className="flex items-center gap-6 md:gap-8 px-6 text-sm font-medium text-gray-400">
             {/* Linked directly to the new pages */}
             <Link href="/about" className="hover:text-white transition-colors">About us</Link>
-            <Link href="/community" className="hover:text-white transition-colors">Community</Link>
+            <Link href="/Deployments" className="hover:text-white transition-colors">Deployments</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           </div>
 
