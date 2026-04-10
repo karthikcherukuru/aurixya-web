@@ -14,8 +14,8 @@ export default function Contact() {
     setIsSubmitting(true);
     setErrorMessage("");
 
-    // ⚠️ REPLACE THIS WITH YOUR ACTUAL WEB3FORMS ACCESS KEY ⚠️
-    const access_key = "YOUR_ACCESS_KEY_GOES_HERE";
+    // FIXED: Your actual Web3Forms Access Key is now inserted here
+    const access_key = "65d17600-a0ef-46c1-88c6-22e079697845";
 
     const formData = new FormData(event.currentTarget);
     formData.append("access_key", access_key);
@@ -41,7 +41,6 @@ export default function Contact() {
     }
   }
 
-  // ADDED: Explicitly telling TypeScript this is a tuple of exactly 4 numbers
   const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
