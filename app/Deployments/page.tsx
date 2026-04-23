@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Deployments() {
-  const premiumEase = [0.16, 1, 0.3, 1];
+  const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col font-sans relative overflow-hidden selection:bg-[#00FF66]/30">
