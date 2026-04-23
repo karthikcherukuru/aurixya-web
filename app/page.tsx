@@ -141,7 +141,7 @@ export default function Home() {
           <div className="flex items-center gap-6 md:gap-8 px-6 text-sm font-medium text-gray-400">
             {/* Linked directly to the new pages */}
             <Link href="/about" className="hover:text-white transition-colors">About us</Link>
-            <Link href="/deployments" className="hover:text-white transition-colors">Deployments</Link>
+            {/* <Link href="/deployments" className="hover:text-white transition-colors">Deployments</Link> */}
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           </div>
 
