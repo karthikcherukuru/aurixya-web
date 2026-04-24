@@ -69,28 +69,50 @@ export default function PortfolioPage() {
 
         {/* Projects Grid */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="p-10 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-500 group"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"></div>
-                <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500 transition-all duration-300">
-                  {project.title}
-                </h3>
+          {projects.map((project, index) => {
+            const isSRP = project.title.includes("SRP");
+            
+            const cardContent = (
+              <div 
+                className={`p-10 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl transition-all duration-500 group h-full ${
+                  isSRP 
+                    ? 'cursor-pointer hover:bg-white/[0.06] hover:border-purple-500/30 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)]' 
+                    : 'hover:bg-white/[0.04]'
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"></div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500 transition-all duration-300 flex items-center gap-2 flex-wrap">
+                    {project.title}
+                    {isSRP && (
+                      <span className="text-sm font-sans font-normal text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1">
+                        View System &rarr;
+                      </span>
+                    )}
+                  </h3>
+                </div>
+                
+                <p className="text-xs font-mono tracking-wider uppercase text-gray-500 mb-8 pb-6 border-b border-white/[0.05]">
+                  Scale: {project.scale}
+                </p>
+                <div className="space-y-5 text-sm leading-relaxed text-gray-400">
+                  <p><strong className="text-gray-200">The Challenge:</strong> {project.challenge}</p>
+                  <p><strong className="text-gray-200">The Solution:</strong> {project.solution}</p>
+                  <p><strong className="text-gray-200">The Impact:</strong> {project.impact}</p>
+                </div>
               </div>
-              
-              <p className="text-xs font-mono tracking-wider uppercase text-gray-500 mb-8 pb-6 border-b border-white/[0.05]">
-                Scale: {project.scale}
-              </p>
-              <div className="space-y-5 text-sm leading-relaxed text-gray-400">
-                <p><strong className="text-gray-200">The Challenge:</strong> {project.challenge}</p>
-                <p><strong className="text-gray-200">The Solution:</strong> {project.solution}</p>
-                <p><strong className="text-gray-200">The Impact:</strong> {project.impact}</p>
+            );
+
+            return isSRP ? (
+              <Link href="/portfolio/SRP" key={index} className="block h-full">
+                {cardContent}
+              </Link>
+            ) : (
+              <div key={index} className="block h-full">
+                {cardContent}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </section>
 
         {/* Process & Transparency Section */}
