@@ -71,12 +71,25 @@ export default function PortfolioPage() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => {
             const isSRP = project.title.includes("SRP");
+            const isAI = project.title.includes("Healthcare AI Voice");
+            const isClickable = isSRP || isAI;
             
+            const destinationURL = isSRP ? "/portfolio/SRP" : "/portfolio/AI";
+            
+            // Dynamic hover styles depending on the project type
+            const hoverStyles = isSRP 
+              ? 'hover:border-purple-500/30 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)]' 
+              : isAI 
+              ? 'hover:border-cyan-500/30 hover:shadow-[0_0_30px_-5px_rgba(34,211,238,0.15)]' 
+              : '';
+              
+            const arrowColor = isSRP ? 'text-purple-400' : 'text-cyan-400';
+
             const cardContent = (
               <div 
                 className={`p-10 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl transition-all duration-500 group h-full ${
-                  isSRP 
-                    ? 'cursor-pointer hover:bg-white/[0.06] hover:border-purple-500/30 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)]' 
+                  isClickable 
+                    ? `cursor-pointer hover:bg-white/[0.06] ${hoverStyles}` 
                     : 'hover:bg-white/[0.04]'
                 }`}
               >
@@ -84,8 +97,8 @@ export default function PortfolioPage() {
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"></div>
                   <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500 transition-all duration-300 flex items-center gap-2 flex-wrap">
                     {project.title}
-                    {isSRP && (
-                      <span className="text-sm font-sans font-normal text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity ml-1">
+                    {isClickable && (
+                      <span className={`text-sm font-sans font-normal ${arrowColor} opacity-0 group-hover:opacity-100 transition-opacity ml-1`}>
                         View System &rarr;
                       </span>
                     )}
@@ -103,8 +116,8 @@ export default function PortfolioPage() {
               </div>
             );
 
-            return isSRP ? (
-              <Link href="/portfolio/SRP" key={index} className="block h-full">
+            return isClickable ? (
+              <Link href={destinationURL} key={index} className="block h-full">
                 {cardContent}
               </Link>
             ) : (
